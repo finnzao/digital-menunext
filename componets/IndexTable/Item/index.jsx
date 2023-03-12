@@ -2,6 +2,7 @@ import styles from "./style.module.css";
 import ButtonDelete from "@/componets/Buttons/buttonDelete";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleChangeAction, updateAction } from "@/redux/reducer";
+import { AiFillEdit } from "react-icons/Ai"
 const Item = ({ prodInfos }) => {
     const price = prodInfos.price[0].toFixed(2);
     const visible = useSelector((state) => state.app.client.toggleForm)
@@ -11,9 +12,11 @@ const Item = ({ prodInfos }) => {
         dispacth(toggleChangeAction())
         if (visible) {
             dispacth(updateAction(prodInfos._id))
+            console.log(visible)
         }
 
     }
+
     return (
         <div className={styles.container}>
 
@@ -25,7 +28,7 @@ const Item = ({ prodInfos }) => {
 
             <span className={styles.state}>{prodInfos.state}</span>
             <ButtonDelete Prodid={prodInfos._id} />
-            <button onClick={onUpdate}>a</button>
+            <button onClick={onUpdate}> <AiFillEdit /> </button>
         </div>
     )
 }

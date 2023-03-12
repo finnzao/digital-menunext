@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styles from "./style.module.css";
-import { RiMenuAddLine } from "react-icons/Ri";
 import { useQueryClient, useMutation, QueryClient } from 'react-query';
 import { newProd, getProds } from '@/lib/ProdResquests';
 import { useReducer } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleChangeAction } from "@/redux/reducer";
-
+import { toggleChangeAction, updateAction } from "@/redux/reducer";
+import { BsCheckCircleFill } from 'react-icons/Bs'
+import { GrAdd } from "react-icons/Gr";
 function FormCreate() {
   //REDUCE
   const queryClient = useQueryClient()
@@ -17,7 +17,6 @@ function FormCreate() {
     }
   }
   const [formData, setFormData] = useReducer(formReduce, {})
-  const [toogleMenu, setToogleMenu] = useState(false);
   const [errorMsg, setErroMsg] = useState("")
   const visible = useSelector((state) => state.app.client.toggleForm)
 
@@ -50,14 +49,14 @@ function FormCreate() {
   if (addMutation.isLoading) <div>Loading</div>
   if (addMutation.isError) return <div>{addMutation.error.message}</div>
   if (addMutation.isSuccess) return <div>COMpleto</div>
+
   //SHOW FORMCREAET
   const onUpdate = () => {
     dispacth(toggleChangeAction())
-
   }
   return (
     <div className={styles.box}>
-      <div> <span onClick={() => onUpdate()}><RiMenuAddLine /></span></div>
+      <div> <span onClick={() => onUpdate()}><GrAdd />Adicionar Produto</span></div>
       {
         visible && (
           <form className={styles.board} onSubmit={sendForm} >
@@ -71,7 +70,7 @@ function FormCreate() {
               }
             }
             <span className={styles.error}>Preencha todos os dados</span>
-            <button className={styles.buttonForm}>Confirmar</button>
+            <button className={styles.buttonForm}>Confirmar  <BsCheckCircleFill /></button>
           </form>
         )
       }
