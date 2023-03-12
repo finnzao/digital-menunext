@@ -2,6 +2,7 @@
     width: 90%;
     border: 1px solid white;
     color: black;
+    flex-direction: column;
 }
 
 .input {
@@ -67,6 +68,24 @@
     background-color: #c8a300a2;
     box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
     transform: translateY(0);
+}
+
+.toggleForm {
+    display: flex;
+    border: 3px solid #d3a200b9;
+    border-radius: 10px;
+    margin: 5px;
+    width: 200px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggleForm:hover {
+    cursor: pointer;
+    background-color: #d3a200b9;
+    color: black;
+    transition: 0.5s;
 }
 
 .error {

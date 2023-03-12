@@ -56,7 +56,7 @@ function FormCreate() {
   }
   return (
     <div className={styles.box}>
-      <div> <span onClick={() => onUpdate()}><GrAdd />Adicionar Produto</span></div>
+      <div> <span className={styles.toggleForm} onClick={() => onUpdate()}><GrAdd />Adicionar Produto</span></div>
       {
         visible && (
           <form className={styles.board} onSubmit={sendForm} >

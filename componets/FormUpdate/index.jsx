@@ -62,7 +62,7 @@ function index() {
     }
     return (
         <div className={styles.box}>
-            <div> <span onClick={() => onUpdate()}>Editar Produto <RiFileEditLine /></span></div>
+            <div> <span className={styles.toggleForm} onClick={() => onUpdate()}>Editar Produto <RiFileEditLine /></span></div>
             {
                 visible && (
                     <form className={styles.board} onSubmit={sendForm} >
