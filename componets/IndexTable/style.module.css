@@ -1,0 +1,14 @@
+.table {
+    width: 100%;
+}
+
+.container {
+    background-color: #c85000;
+
+    width: 100%;
+}
+
+.title {
+    font-size: 4rem;
+    text-align: center;
+}

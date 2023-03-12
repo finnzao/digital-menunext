@@ -1,5 +1,6 @@
 
 import Head from 'next/head';
+
 export default function Home() {
   return (
     <>
@@ -9,7 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/12/12426.png" />
       </Head>
-      <h1>index</h1>
+      <h1>BEM VINDO</h1>
     </>
   )
 }

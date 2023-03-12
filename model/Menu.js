@@ -16,12 +16,12 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     price: {
-        type: [Number],// [ ] -> to especific
+        type: [Number],// [ ] -> obh
         required: true
     },
     state: {
         type: String,
-        required: true
+        default: 1,
     }
 }, { timestamps: true })
 

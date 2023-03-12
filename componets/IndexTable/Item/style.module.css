@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    gap: 10px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dark-text);
+}
+
+.desc {
+    text-align: center;
+    color: var(--sub-dark-text);
+}
+
+
+
+@media (max-width:720px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .container img {
+        width: 200px;
+        height: 200px;
+    }
+
+}
