@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+.head{
+	height: 150px;
+	background-color: blueviolet;
+	font-size: 2rem;
+	text-align: center;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Sawarabi Mincho', serif;
+}
+
+.title{
+
+	width: max-content;
+}
+.separation{
+	width: 200px;
+	border: 1px solid black;
+}
+.container{
+    padding: 4rem 0;
+}
+
+.gridCard{
+	 width: 95vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    /*auto-fit =ocupar toda tela , auto-fill ocupado toda o espaço da div*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+}
+
+
+
+
+@media screen and (max-width: 468px){
+	.head{
+		font-size: 1.6rem;
+	}
+}

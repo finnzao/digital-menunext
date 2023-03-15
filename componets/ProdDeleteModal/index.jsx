@@ -6,16 +6,23 @@ import { deleteAction } from "@/redux/reducer";
 import {useDispatch} from 'react-redux';
 import {deleteProd,getProds} from '@/lib/ProdResquests'
 import {useQueryClient} from 'react-query'
-function ButtonDelete({ Prodid }) {
+function ProdDeleteModal({id} ) {
     const queryClient=useQueryClient();
 
     const deleteHandler = async()=>{
-        await deleteProd(Prodid)
+        await deleteProd(id)
         await queryClient.prefetchQuery('prods',getProds)
+        await dispatch(deleteAction(null))
     }
     return (
-        <button className={styles.buttonIndex} onClick={deleteHandler}><TiDelete /></button>
+        <div className="modal">
+        <div className="modalBackground"></div>  
+        <div className="box">
+            <span>Isso irá deletar o produto.<br>Tem certeza?</span>
+            <button>Sim</button>
+            <button>Não</button>
+        </div>
     )
 }
 
-export default ButtonDelete
+export default ProdDeleteModal;

@@ -7,9 +7,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleChangeAction, updateAction } from "@/redux/reducer";
 import { BsCheckCircleFill } from 'react-icons/Bs'
 import { GrAdd } from "react-icons/Gr";
+
+
+
 function FormCreate() {
   //REDUCE
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
   const formReduce = (state, event) => {
     return {
       ...state,
@@ -43,12 +46,13 @@ function FormCreate() {
     }
 
     addMutation.mutate(model)
+    onUpdate()
   }
 
 
   if (addMutation.isLoading) <div>Loading</div>
   if (addMutation.isError) return <div>{addMutation.error.message}</div>
-  if (addMutation.isSuccess) return <div>COMpleto</div>
+
 
   //SHOW FORMCREAET
   const onUpdate = () => {

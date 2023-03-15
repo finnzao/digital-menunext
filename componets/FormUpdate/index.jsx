@@ -2,58 +2,52 @@ import React from 'react';
 import { useState } from 'react';
 import styles from "./style.module.css";
 import { RiFileEditLine } from "react-icons/Ri";
-import { useQueryClient, useMutation, QueryClient } from 'react-query';
-import { newProd, getProds } from '@/lib/ProdResquests';
-import { useReducer } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleChangeAction, updateAction } from "@/redux/reducer";
+import { useQuery, useMutation, useQueryClient } from 'react-query';
+import { getProd,updateProd,getProds } from '@/lib/ProdResquests';
+import { toggleChangeAction, updateAction } from "@/redux/reducer"; 
 import { BsPencilFill } from 'react-icons/Bs';
 
-function index() {
-    //REDUCE
-    const queryClient = useQueryClient()
-    const formReduce = (state, event) => {
-        return {
-            ...state,
-            [event.target.name]: event.target.value
-        }
-    }
-    const [formData, setFormData] = useReducer(formReduce, {})
-    const [toogleMenu, setToogleMenu] = useState(false);
-    const [errorMsg, setErroMsg] = useState("")
-    const visible = useSelector((state) => state.app.client.toggleForm)
 
-    //MUTATION
-    const dispacth = useDispatch()
-    const addMutation = useMutation(newProd, {
-        onSuccess: () => {
-            queryClient.prefetchQuery('prods', getProds)
+function FormUpdate(props) {
+    //Input result
+    let [msgInput,SetMsgInput]=useState("")
+    //Querry
+    const queryClient=useQueryClient()
+    const _id=props.id
+    const UpdateMutation = useMutation((UpdateDate)=>updateProd(_id,inputData),{
+        onSuccess:async(data)=>{
+            //queryClient.setQueryData('prods',(old)=>[data])
+           queryClient.prefetchQuery('prods',getProds);
+           SetMsgInput(<span className={styles.green}>Atualizado com sucesso</span>);
         }
-    });
+    })
+
+    //VALORES INPUT
+    const [inputData,SetInputData]=useState({
+        title:props.title,
+        desc:props.desc,
+        price:props.price
+    })
+    function changehandle(e){
+        SetInputData({...inputData,[e.target.name]:e.target.value})
+    }
+    //
+    const {isLoading,isError,data,error}=useQuery(['prods',_id],()=>getProd(_id))
+    if(isLoading) return <div>Carregando...</div>
+    if(isError)SetMsgInput(<span className={styles.red}>Error </span>); 
+
 
     //SEND FORM
-    const sendForm = (e) => {
+    const sendForm = async (e) => {
         e.preventDefault()
-        if (!Object.keys(formData).length === 0) return console.log("Não existe Form Data");
-        //Bug: Apos Clicar e Apagar ainda fica selecionado que o campo está preenchido 
-        let { title, desc, img, price, state } = formData;
-        const model = {
-            title: title,
-            desc: desc,
-            img: img,
-            price: [price],
-            state: state
-        }
-
-        addMutation.mutate(model)
+        await UpdateMutation.mutate(inputData)
     }
 
+    //MOSTRAR RESPOSTA
+    
 
-    if (addMutation.isLoading) <div>Loading</div>
-    if (addMutation.isError) return <div>{addMutation.error.message}</div>
-    if (addMutation.isSuccess) return <div>COMpleto</div>
-
-    //SHOW FORMCREAET
+    console.log(inputData)
+    //SHOW FORMC REAET
     const onUpdate = () => {
         dispacth(toggleChangeAction())
         if (visible) {
@@ -62,27 +56,22 @@ function index() {
     }
     return (
         <div className={styles.box}>
-            <div> <span className={styles.toggleForm} onClick={() => onUpdate()}>Editar Produto <RiFileEditLine /></span></div>
-            {
-                visible && (
+            <div> <span className={styles.toggleForm} >Editando Produto <RiFileEditLine /></span></div>
+            
+          
                     <form className={styles.board} onSubmit={sendForm} >
-                        <input name='title' onChange={setFormData} className={styles.input} type="text" placeholder='Nome' />
-                        <input name='desc' onChange={setFormData} className={styles.input} type="text" placeholder='Descrição' />
-                        <input name='price' onChange={setFormData} className={styles.input} type="numer" placeholder='Preço' />
-                        <input name='img' onChange={setFormData} className={styles.input} type="file" accept="image/*" />
-                        {
-                            errorMsg && {
-                                errorMsg
-                            }
-                        }
-                        <span className={styles.error}>Preencha todos os dados</span>
-                        <button className={styles.buttonForm}>Atualizar <BsPencilFill /></button>
+                        <input name='title' value={inputData.title} defaultValue={props.title} onChange={changehandle} className={styles.input} type="text" placeholder='Nome' />
+                        <input name='desc' value={inputData.desc} defaultValue={props.desc} onChange={changehandle} className={styles.input} type="text" placeholder='Descrição' />
+                        <input name='price' value={inputData.price} defaultValue={props.price} onChange={changehandle} className={styles.input} type="numer" placeholder='Preço' />
+     
+                            <span className={styles.msgInput}>{msgInput}</span>
+                        <button className={styles.buttonForm}>Confirmar Mudança <BsPencilFill /></button>
                     </form>
-                )
-            }
+            
+            
 
         </div>
     )
 }
 
-export default index
+export default FormUpdate;

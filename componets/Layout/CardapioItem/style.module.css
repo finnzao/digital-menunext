@@ -1,0 +1,39 @@
+.headCardapio{
+    display: flex;
+    justify-content: space-between;
+}
+
+.headCardapio span{
+	width: 40%;
+
+}
+
+.textCardapio{
+	padding: 14px;
+}
+
+.img{
+	width: 100%;
+	height: 200px;
+	background-color: bisque;
+	border-radius:20px 20px 0px 0px;
+}
+.price{
+	text-align: right;
+}
+.itemCardapio{
+	height: 400px;
+	background-color: grey;
+	border-radius: 20px;
+}
+.desc{
+	margin-top: 10px;
+}
+
+
+@media screen and (max-width: 468px){
+.headCardapio span{
+	width: 40%;
+
+}
+}
