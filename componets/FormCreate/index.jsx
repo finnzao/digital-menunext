@@ -5,8 +5,8 @@ import { newProd, getProds } from '@/lib/ProdResquests';
 import { useReducer } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleChangeAction, updateAction } from "@/redux/reducer";
-import { BsCheckCircleFill } from 'react-icons/Bs'
-import { GrAdd } from "react-icons/Gr";
+import { BsCheckCircleFill } from 'react-icons/bs'
+import { GrAdd } from "react-icons/gr";
 
 
 

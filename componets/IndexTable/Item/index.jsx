@@ -2,7 +2,7 @@ import styles from "./style.module.css";
 import ButtonDelete from "@/componets/Buttons/buttonDelete";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleChangeAction, updateAction } from "@/redux/reducer";
-import { AiFillEdit } from "react-icons/Ai";
+import { AiFillEdit } from "react-icons/ai";
 import FormUpdate from '@/componets/FormUpdate';
 
 import { useState } from 'react';
