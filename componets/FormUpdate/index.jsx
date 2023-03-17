@@ -45,8 +45,6 @@ function FormUpdate(props) {
 
     //MOSTRAR RESPOSTA
     
-
-    console.log(inputData)
     //SHOW FORMC REAET
     const onUpdate = () => {
         dispacth(toggleChangeAction())

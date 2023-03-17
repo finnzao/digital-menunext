@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         case 'GET':
             try {
                 const products = await Product.find();
-                res.status(200).json(products);
+                res.status(200).json(products );
             } catch (err) {
                 res.status(500).json(err);
             }
@@ -30,7 +30,6 @@ export default async function handler(req, res) {
 
         case 'DELETE':
             try {
-                console.log(id)
                 await Product.findByIdAndDelete(id);
                 res.status(200).json("O produto foi deletado");
             } catch (err) {

@@ -6,7 +6,7 @@ export default function Cardapio() {
     const { data, isError, isLoading } = useQuery('prods', getProds);
     if (isLoading) return <div>Carregando</div>
     if (isError) return <div>{isError}</div>
-    console.log(data)
+    
   return (
     <>
     	<div >
