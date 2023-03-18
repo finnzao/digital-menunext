@@ -9,7 +9,7 @@ export default function Cardapio() {
     
   return (
     <>
-    	<div >
+    	<div className={styles.cardapio} >
        <div className={styles.head}>
          <h1 className={styles.title}>Restaurante Japones</h1>
          <span className={styles.separation}/>
@@ -20,15 +20,10 @@ export default function Cardapio() {
 
         <div className={styles.gridCard}>
 
-
         {data.map((item)=>(
           <CardapioItem key={item._id} prodInfos={item}/>
           ))}
         
-
-
-
-
         </div>
       </div>
 

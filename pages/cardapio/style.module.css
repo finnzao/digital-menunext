@@ -1,20 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+
 .head{
 	height: 150px;
-	background-color: blueviolet;
+	background-color: var( --color-head);
 	font-size: 2rem;
 	text-align: center;
-	color: white;
+	color:var(--color-second) ;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Sawarabi Mincho', serif;
 }
+.cardapio{
+		background-color: white;
+}
 
 .title{
-
 	width: max-content;
+	font-size: 2rem;
+    font-weight: bolder;
+
 }
 .separation{
 	width: 200px;
@@ -40,6 +46,6 @@
 
 @media screen and (max-width: 468px){
 	.head{
-		font-size: 1.6rem;
+		font-size: 1.7rem;
 	}
 }

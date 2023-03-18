@@ -1,4 +1,8 @@
-.container {
+.container{
+    width: 100%;
+}
+
+.box {
     width: 100%;
     text-align: center;
     display: grid;
@@ -33,6 +37,9 @@
     color: var(--sub-dark-text);
 }
 
+.containerScreenForm{
+    
+}
 .ScreenForm{
     height: 100vh;
     position: absolute;
@@ -55,13 +62,13 @@
 }
 
 @media (max-width:720px) {
-    .container {
+    .box {
         width: 100%;
         flex-direction: column;
         grid-template-columns: auto;
     }
 
-    .container img {
+    .box img {
         width: 200px;
         height: 200px;
 

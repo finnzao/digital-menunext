@@ -11,6 +11,11 @@ const ProductSchema = new mongoose.Schema({
         required: true,
         maxlength: 200
     },
+    category:{
+        type:String,
+        required:true,
+        maxlength:30
+    },
     img: {
         type: String,
         required: true
@@ -20,8 +25,8 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     state: {
-        type: String,
-        default: 1,
+        type: Boolean,
+        default: true,
     }
 }, { timestamps: true })
 

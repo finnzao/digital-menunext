@@ -1,7 +1,6 @@
 import styles from "./style.module.css";
 import IndexTable from '@/componets/IndexTable';
 import FormCreate from '@/componets/FormCreate';
-import FormUpdate from '@/componets/FormUpdate';
 import { useSelector } from 'react-redux';
 import { useReducer } from 'react';
 const formReducer = (state, event) => {
@@ -12,13 +11,13 @@ const formReducer = (state, event) => {
 }
 function DashBoard() {
 
-    
+
     const formId = useSelector((state) => state.app.client.formId);
     const [formData, setFormData] = useReducer(formReducer, {})
     return (
 
         <div className={styles.container}>
-             {FormCreate({formId,formData,setFormData})}
+            {FormCreate({ formId, formData, setFormData })}
 
             <IndexTable />
         </div>
