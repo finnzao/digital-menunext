@@ -36,11 +36,12 @@ function FormCreate() {
     e.preventDefault()
     if (!Object.keys(formData).length === 0) return console.log("Não existe Form Data");
     //Bug: Apos Clicar e Apagar ainda fica selecionado que o campo está preenchido 
-    let { title, desc, img, price, state } = formData;
+    let { title, desc, img,category, price, state } = formData;
     const model = {
       title: title,
       desc: desc,
       img: img,
+      category:category,
       price: [price],
       state: state
     }
@@ -67,6 +68,7 @@ function FormCreate() {
             <input name='title' onChange={setFormData} className={styles.input} type="text" placeholder='Nome' />
             <input name='desc' onChange={setFormData} className={styles.input} type="text" placeholder='Descrição' />
             <input name='price' onChange={setFormData} className={styles.input} type="numer" placeholder='Preço' />
+            <input name='category' onChange={setFormData} className={styles.input} type="numer" placeholder='Categoria' />
             <input name='img' onChange={setFormData} className={styles.input} type="file" accept="image/*" />
             {
               errorMsg && {

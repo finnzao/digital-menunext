@@ -35,6 +35,8 @@
 	width: 100%;
 	height: 100px;
 	background-color: darkred;
+	position: relative;
+	
 }
 .warningText h1{
 	font-size: 2rem;

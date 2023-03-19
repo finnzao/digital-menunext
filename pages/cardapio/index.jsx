@@ -6,7 +6,7 @@ export default function Cardapio() {
     const { data, isError, isLoading } = useQuery('prods', getProds);
     if (isLoading) return <div>Carregando</div>
     if (isError) return <div>{isError}</div>
-    
+    const sortArray = data.sort((a, b) => b.state - a.state);
   return (
     <>
     	<div className={styles.cardapio} >
@@ -20,7 +20,8 @@ export default function Cardapio() {
 
         <div className={styles.gridCard}>
 
-        {data.map((item)=>(
+        {sortArray.map((item)=>(
+
           <CardapioItem key={item._id} prodInfos={item}/>
           ))}
         
