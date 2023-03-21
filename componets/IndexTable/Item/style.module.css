@@ -14,12 +14,56 @@
     border: 2px solid white;
     border-radius: 40px;
 }
+.boxUpdate{
+    width: 100%;
+    text-align: center;
+    display: grid;
+    align-items: center;
+   
+    border-radius: 40px;
+}
+.topFormUpdate{
+    display: flex;
+    justify-content: space-between;
+    padding:0px 20px;
+    align-items: center;
+    border:  3px solid white;
+    border-radius: 10px 10px 0px 0px;
+    background-color: black;
+}
+.titeFormUpdate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.closeFormUpdate{
+    width: 30px;
+    height: 30px;
+}
+.closeFormUpdate svg{
+    width: 100%;
+    height: 100%;
+}
+.closeFormUpdate:hover{
+    cursor: pointer;
+}
+.containerUpdate{
+    width: 100%;
+}
 .buttonIndex{
+    height: 30px;
+    height: 30px;
     margin: auto auto;
+}
+.buttonIndex svg{
+    width: 100%;
+    height: 100%;
 }
 .buttonsTable{
     display: flex;
 }
+
 .title {
     font-size: 18px;
     font-weight: bold;
@@ -41,24 +85,18 @@
     
 }
 .ScreenForm{
-    height: 100vh;
-    position: absolute;
-    width: 100vw;
-    top: 0;
+    height: auto;
+    width: auto;
+
     display: flex;
     z-index: 5;
-    left: 0;
+
     justify-content: center;
     align-items: center;
 
 }
 .backgroundFrom{
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-    background-color: grey;
-    opacity: 0.5;
-    position: absolute;
+
 }
 
 @media (max-width:720px) {

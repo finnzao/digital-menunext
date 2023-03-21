@@ -16,7 +16,7 @@ function ButtonDelete({ Prodid }) {
         await queryClient.prefetchQuery('prods', getProds)
     }
     return (
-        <button className={styles.buttonIndex} onClick={deleteHandler}><TiDelete /></button>
+        <button className={styles.buttonIndex} onClick={deleteHandler}><TiDelete height="2em" width="2em"/></button>
     )
 }
 

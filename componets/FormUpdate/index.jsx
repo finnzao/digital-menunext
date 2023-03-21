@@ -1,17 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import styles from "./style.module.css";
-import { RiFileEditLine } from "react-icons/ri";
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { getProd,updateProd,getProds } from '@/lib/ProdResquests';
 import { toggleChangeAction, updateAction } from "@/redux/reducer"; 
 import { BsPencilFill } from 'react-icons/bs';
 
 
-function FormUpdate(props) {
+function FormUpdate(props,{x}) {
     //Input result
     let [msgInput,SetMsgInput]=useState("")
     //Querry
+ 
     const queryClient=useQueryClient()
     const _id=props.id
     const UpdateMutation = useMutation((UpdateDate)=>updateProd(_id,inputData),{
@@ -54,9 +54,6 @@ function FormUpdate(props) {
     }
     return (
         <div className={styles.box}>
-            <div> <span className={styles.toggleForm} >Editando Produto <RiFileEditLine /></span></div>
-            
-          
                     <form className={styles.board} onSubmit={sendForm} >
                         <input name='title' value={inputData.title} defaultValue={props.title} onChange={changehandle} className={styles.input} type="text" placeholder='Nome' />
                         <input name='desc' value={inputData.desc} defaultValue={props.desc} onChange={changehandle} className={styles.input} type="text" placeholder='Descrição' />

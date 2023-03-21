@@ -1,12 +1,13 @@
 .box {
-    width: 90%;
+    width: 100%;
     border: 1px solid white;
     color: black;
     flex-direction: column;
     background-color: white;
-    z-index: 4;
-    height: fit-content;
-    padding: 50px;
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    
 }
 
 .input {
@@ -26,6 +27,8 @@
     height: max-content + 200px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    padding: 15px;
 }
 
 

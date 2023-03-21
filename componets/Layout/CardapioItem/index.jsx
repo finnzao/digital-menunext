@@ -15,7 +15,9 @@ export default function CardapioItem({prodInfos}) {
           </span>
           <div className={styles.img}>
           <Image
-            src={ImgProd}
+            width={400}
+            height={400}
+            src={prodInfos.img}
             alt="sushi"
           />
           </div>

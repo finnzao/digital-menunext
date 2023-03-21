@@ -3,6 +3,8 @@ import ButtonDelete from "@/componets/Buttons/buttonDelete";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleChangeAction, updateAction } from "@/redux/reducer";
 import { AiFillEdit } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
+import { RiFileEditLine } from "react-icons/ri";
 import FormUpdate from '@/componets/FormUpdate';
 import ButtonToggle from "@/componets/Buttons/buttonToggleState";
 import { useState } from 'react';
@@ -18,9 +20,12 @@ const Item = ({ prodInfos }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.box}>
-
-                <h1 className={styles.title}>{prodInfos.title}</h1>
+            
+            {
+                !showCreateForm && 
+                
+                <div className={styles.box}>
+                 <h1 className={styles.title}>{prodInfos.title}</h1>
                 <span className={styles.price}>R${price}</span>
                 <p className={styles.desc}>
                     {prodInfos.desc}
@@ -32,19 +37,30 @@ const Item = ({ prodInfos }) => {
                     <button className={styles.buttonIndex} onClick={showForm}> <AiFillEdit /> </button>
 
                 </span>
-            </div>
+               </div>
+          
+            
+            }
+
             {
                 showCreateForm &&
-                <div className={styles.containerScreenForm}>
-                    <div className={styles.ScreenForm}>
-                        <button>abc</button>
-                        <div onClick={showForm} className={styles.backgroundFrom} />
-                        <FormUpdate id={prodInfos._id} desc={prodInfos.desc} title={prodInfos.title} price={prodInfos.price} />
-                    </div>
+                <div className={styles.boxUpdate}>
+                <div className={styles.containerUpdate}>
+          
+                <div className={styles.topFormUpdate} onClick={showForm}>
+                    <span className={styles.titeFormUpdate}><h3>Editando Produto </h3> <RiFileEditLine/></span>
+                    <span className={styles.closeFormUpdate} onClick={showForm}><AiOutlineClose/></span>
+
+                </div>
+                <FormUpdate id={prodInfos._id} desc={prodInfos.desc} title={prodInfos.title} price={prodInfos.price} />
+                </div>
                 </div>
 
             }
-        </div>
+               
+            </div>
+
+    
 
     )
 }
