@@ -11,8 +11,9 @@
 	align-items: center;
 	justify-content: center;
 	font-family: 'Sawarabi Mincho', serif;
-	background-image: url("../../assents/background.jpeg");
-	background-size: cover	;
+	background-image: url("https://images.pexels.com/photos/2564252/pexels-photo-2564252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+	background-size: cover;
+	background-position:bottom ;
 }
 .headText{
     display: flex;
@@ -54,6 +55,9 @@
 
 @media screen and (max-width: 468px){
 	.head{
-		font-size: 1.7rem;
+		font-size: 1.5rem;
+	}
+	.title{
+		font-size: 1.4rem;
 	}
 }

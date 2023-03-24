@@ -2,7 +2,8 @@ import styles from "./style.module.css";
 import { getProds } from '@/lib/ProdResquests';
 import CardapioItem from "@/componets/Layout/CardapioItem";
 import { useQuery } from 'react-query';
-import Preloader from "@/componets/Preloader"
+import Preloader from "@/componets/Preloader";
+import background from "@/assents/background.jpeg"
 export default function Cardapio() {
     const { data, isError, isLoading } = useQuery('prods', getProds);
     if (isLoading) return <Preloader/>
