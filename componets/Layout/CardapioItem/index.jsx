@@ -1,5 +1,4 @@
 import styles from "./style.module.css";
-import ImgProd from "@/assents/sushi.jpg";
 import Image from 'next/image';
 import SoldOut from "@/assents/soldout.png";
 export default function CardapioItem({prodInfos}) {
