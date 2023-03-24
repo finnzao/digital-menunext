@@ -3,17 +3,25 @@
 .head{
 	height: 150px;
 	background-color: var( --color-head);
-	font-size: 2rem;
+	font-size: 1.2rem;
 	text-align: center;
-	color:var(--color-second) ;
+	color:orange ;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Sawarabi Mincho', serif;
+	background-image: url("../../assents/background.jpeg");
+	background-size: cover	;
+}
+.headText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .cardapio{
-		background-color: white;
+		background-color: #dbdbdbad;;
 }
 
 .title{

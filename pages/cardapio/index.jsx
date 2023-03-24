@@ -2,18 +2,22 @@ import styles from "./style.module.css";
 import { getProds } from '@/lib/ProdResquests';
 import CardapioItem from "@/componets/Layout/CardapioItem";
 import { useQuery } from 'react-query';
+import Preloader from "@/componets/Preloader"
 export default function Cardapio() {
     const { data, isError, isLoading } = useQuery('prods', getProds);
-    if (isLoading) return <div>Carregando</div>
+    if (isLoading) return <Preloader/>
     if (isError) return <div>{isError}</div>
     const sortArray = data.sort((a, b) => b.state - a.state);
   return (
     <>
     	<div className={styles.cardapio} >
+
        <div className={styles.head}>
-         <h1 className={styles.title}>Restaurante Japones</h1>
-         <span className={styles.separation}/>
-         <span>- Menu - </span>
+          <div className={styles.headText}>
+            <h1 className={styles.title}>Restaurante Melhor Sabor</h1>
+            <span className={styles.separation}/>
+             <span>- Cardapio - </span>
+         </div>
        </div>
 
       <div className={styles.container}>
