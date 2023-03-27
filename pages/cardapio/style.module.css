@@ -21,6 +21,46 @@
     justify-content: center;
     align-items: center;
 }
+.category{
+	width: 100%;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+.category h1{
+	font-size: 2rem;
+	text-transform: uppercase;
+	color: ;
+}
+
+.nine h1 {
+  text-align:center; font-size:50px; text-transform:uppercase; color:#222; letter-spacing:1px;
+  font-family:"Playfair Display", serif; font-weight:400;
+
+}
+.nine h1 span {
+
+  margin-top: 5px;
+    font-size:15px; color:#444; word-spacing:1px; font-weight:normal; letter-spacing:2px;
+    text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
+
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: 27px 0;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.nine h1 span:after,.nine h1 span:before {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    height: 5px;
+  background-color:#f8f8f8;
+}
+
 .cardapio{
 		background-color: #dbdbdbad;;
 }
@@ -49,7 +89,14 @@
     grid-column-gap: 1.5rem;
     grid-row-gap: 2rem;
 }
-
+.boxButtons{
+	display: grid;
+	padding: 0px 40px;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, minmax(70px,120px));
+	margin-bottom: 3rem;
+	gap: 0px 30px;
+}
 
 
 
@@ -59,5 +106,16 @@
 	}
 	.title{
 		font-size: 1.4rem;
+	}
+			.nine h1 {
+  	text-align:center; font-size:30px; 
+	}
+	.boxButtons{
+		gap:0px 10px;
+	}
+}
+@media screen and (max-width: 375px){
+		.nine h1 {
+  	text-align:center; font-size:30px; 
 	}
 }

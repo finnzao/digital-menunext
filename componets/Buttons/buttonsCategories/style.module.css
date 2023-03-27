@@ -1,0 +1,19 @@
+.button{
+	text-decoration: none;
+    background: transparent;
+    border: 1px solid orangered;
+    border-radius: 20px;
+    width: 100%;
+    cursor: pointer;
+    padding: 4px 0px;
+    margin: 10px 0px;
+    font-weight: 700;
+    color: black;
+}
+
+.button:hover{
+	background-color: orange;
+	transition: 0.4s;
+}
+
+

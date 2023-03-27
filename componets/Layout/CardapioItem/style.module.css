@@ -13,6 +13,7 @@
 
 }
 .itemCardapioNone{
+	max-width: 400px;
 	min-height: 350px;
 	border: 3px solid  var(--color-primary);
 	border-radius: 23px;
@@ -73,6 +74,7 @@
 	color: var(--color-primary);
 }
 .itemCardapio{
+	max-width: 400px;
 	min-height: 350px;
 	border: 3px solid  var(--color-primary);
 	border-radius: 23px;
