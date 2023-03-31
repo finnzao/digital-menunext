@@ -7,8 +7,9 @@
 
 .input {
     border: 0;
-    padding: 7px 0;
-    border-bottom: 1px solid #ccc;
+    padding: 7px 7px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .input:focus {
@@ -17,12 +18,77 @@
     transition: 0.2s;
 }
 
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input:valid {
+    border-color:#0f0;
+
+}
+.input:invalid {
+    border-color:#f00;
+
+}
+/* Works for Firefox */
+.input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .board {
     width: 100%;
     height: max-content + 200px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
+
+
+.inputImg {
+  display: none;
+}
+
+.picture {
+  width: 400px;
+  aspect-ratio: 16/9;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  border: 2px dashed currentcolor;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+}
+
+.picture:hover {
+  color: #777;
+  background: #ccc;
+}
+
+.picture:active {
+  border-color: turquoise;
+  color: turquoise;
+  background: #eee;
+}
+
+.picture:focus {
+  color: #777;
+  background: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture__img {
+  max-width: 100%;
+}
+
+
+
 
 
 .buttonForm {
@@ -87,9 +153,13 @@
     color: black;
     transition: 0.5s;
 }
-
-.error {
-    color: red;
+.msgSpan{
     text-align: center;
     font-weight: bold;
+}
+.errorMsg {
+    color: red;
+}
+.okayMsg{
+    color: green;
 }

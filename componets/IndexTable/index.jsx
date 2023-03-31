@@ -12,7 +12,7 @@ function IndexTable() {
     return (
         <div className={styles.container}>
 
-            <h1 className={styles.title}> Produtos</h1>
+            <h1 className={styles.title}> DashBoard</h1>
             <div className={styles.table} >
                 <List prodList={data} />
             </div>

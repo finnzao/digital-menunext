@@ -16,13 +16,17 @@ function FormCreate() {
   //REDUCE
   const queryClient = useQueryClient();
   const formReduce = (state, event) => {
-    return {
+    try {
+      return{
       ...state,
       [event.target.name]: event.target.value
     }
+    }catch(e){
+      console.log(e)
+    }
   }
-  const [formData, setFormData] = useReducer(formReduce, {})
-  const [errorMsg, setErroMsg] = useState(false)
+  const [formData, setFormData] = useReducer(formReduce, {title: '', desc: '', price: '', category: ''})
+  const [errorMsg, setErroMsg] = useState("")
 
   const visible = useSelector((state) => state.app.client.toggleForm)
     const [previewSource,setPreviewSource]=useState();
@@ -51,11 +55,12 @@ function FormCreate() {
     }
 
     addMutation.mutate(model)
+    setErroMsg("")
     onUpdate()
+    setFormData({title: '', desc: '', price: '', category: ''})
   }
   catch (error) {
     console.log(error)
-    setErroMsg(true)
   }
 
 
@@ -90,23 +95,31 @@ function FormCreate() {
 
 
   //TEST
-  function checkProperties(obj) {
-
-    for (var key in obj) {
-      console.log(obj[key])
-        if (obj[key] !== null && obj[key] != ""){
-            console.log("In")
-            return true;
-          }
+  const checkProperties =(e) =>{
+    console.log(formData)
+    e.preventDefault()
+    if(formData==undefined){
+      return setErroMsg(<span className={styles.errorMsg}>Preencha todos os dados</span>)
     }
-    return false;
+    for (var key in formData) {
+    console.log(formData[key])
+      if (formData[key] === undefined  ){
+          console.log("empty")
+        return setErroMsg(<span className={styles.errorMsg}>Preencha todos os dados</span>)
+      }
+    }
+    setErroMsg(<span className={styles.okayMsg}>Dados preenchidos com sucesso</span>)
+    sendForm()
+    setPreviewSource('');
+    setSelectedFile('');
 }
 
   const Validation=(e)=>{
       e.preventDefault();
       if( (Object.keys(formData).length==0) || (Object.values(formData)=='')){
-        return setErroMsg(true)
+        return setErroMsg("error")
       }
+
       setErroMsg(false);
       sendForm()
       setPreviewSource('');
@@ -120,21 +133,32 @@ function FormCreate() {
     fileData.append("file",files[0])
     console.log(fileData)
   }
+
   return (
     <div className={styles.box}>
       <div> <span className={styles.toggleForm} onClick={() => onUpdate()}><GrAdd />Adicionar Produto</span></div>
       {
         visible && (
-          <form className={styles.board} onSubmit={Validation} >
-            <input name='title' onChange={setFormData} className={styles.input} type="text" placeholder='Nome' />
-            <input name='desc' onChange={setFormData} className={styles.input} type="text" placeholder='Descrição' />
-            <input name='price' onChange={setFormData} className={styles.input} type="numer" placeholder='Preço' />
-            <input name='category' onChange={setFormData} className={styles.input} type="numer" placeholder='Categoria' />
-            <input name='img' onChange={handleFileInputChange} type="file" accept="image/*" />
-            {previewSource && (<img src={previewSource} alt="chosen"style={{height:'300px',width:"300px"}}/>)}
+          <form className={styles.board} onSubmit={checkProperties} >
+            <input name='title' onChange={setFormData} className={styles.input} type="text" placeholder='Nome' required />
+            <input name='desc' onChange={setFormData} className={styles.input} type="text" placeholder='Descrição' required/>
+            <input name='price' onChange={setFormData} inputmode="numeric" className={styles.input} type="text" placeholder='Preço' required />
+            <input name='category' onChange={setFormData}  className={styles.input} type="text" placeholder='Categoria' required />
+            
+
+            <label className={styles.picture} for="img" tabIndex="0">
+                  <span className={styles.picture__image}>
+                  Escolher imagem
+                  {previewSource && (<img className={styles.picture__image} src={previewSource} alt="chosen"/>)}
+                  </span>
+            </label>
+
+            <input name='img' id='img' className={styles.inputImg} onChange={handleFileInputChange} type="file" accept="image/*" required />
+
+            
            
           
-            <span className={styles.error}>{errorMsg?"Preencha todos os campos":""}</span>
+            <span className={styles.msgSpan} >{errorMsg}</span>
             <button className={styles.buttonForm}>Confirmar  <BsCheckCircleFill /></button>
           </form>
         )
