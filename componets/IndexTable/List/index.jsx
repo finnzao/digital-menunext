@@ -1,15 +1,33 @@
 import Item from "../Item/";
-import styles from "./style.module.css"
+import styles from "./style.module.css";
+import {useTable} from "react-table";
+import {useMemo} from "react";
 const ProductsList = ({ prodList }) => {
-    return (
-        <div className={styles.container}>
-            <div className={styles.wrapper}>
-                <div className={styles.titleWrapper}> <div><h1>Nome</h1></div> <div><h1>Nome</h1></div> <div><h1>Nome</h1></div> <div><h1>Nome</h1></div></div>
-                {prodList.map((item) => (
-                    <Item key={item._id} prodInfos={item} />
+    /*<div className={styles.wrapper}>
+        {prodList.map((item) => (
+            <Item key={item._id} prodInfos={item} />
                 ))}
-            </div>
-        </div>
+    </div>*/
+    return (
+    <table className={styles.wrapper}>
+    <thead className={styles.full}>
+    <tr className={styles.titlesTable}>
+        <th>Produto</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th className={styles.centerText}>Estado</th>
+        <th className={styles.centerText}>Ações</th>
+    </tr>
+    </thead>
+
+    <tbody className={styles.itensTable}>
+
+        {prodList.map((item) => (
+            <Item key={item._id} prodInfos={item} />
+                ))}
+
+    </tbody>
+    </table>
     )
 }
 

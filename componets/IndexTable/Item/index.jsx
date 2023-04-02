@@ -17,27 +17,35 @@ const Item = ({ prodInfos }) => {
         SetCreateShowForm(!showCreateForm)
 
     }
-
     return (
-        <div className={styles.container}>
+        <>
             
             {
                 !showCreateForm && 
                 
-                <div className={styles.box}>
+                <>
+                <tr>
+                <td>
                  <h1 className={styles.title}>{prodInfos.title}</h1>
+                 </td>
+                <td>
+                    <h1 className={styles.id} >{prodInfos.category}</h1>
+                </td>
+                <td>
                 <span className={styles.price}>R${price}</span>
-                <p className={styles.desc}>
-                    {prodInfos.desc}
-                </p>
+                </td>
+                <td>
                 <ButtonToggle state={prodInfos.state} id={prodInfos._id} />
                 <span className={styles.state}>{prodInfos.state}</span>
+                </td>
+                <td>
                 <span className={styles.buttonsTable}>
                     <ButtonDelete className={styles.buttonIndex} Prodid={prodInfos._id} />
                     <button className={styles.buttonIndex} onClick={showForm}> <AiFillEdit /> </button>
-
                 </span>
-               </div>
+                </td>
+                </tr>
+                </>
           
             
             }
@@ -58,7 +66,7 @@ const Item = ({ prodInfos }) => {
 
             }
                
-            </div>
+            </>
 
     
 

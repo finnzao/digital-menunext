@@ -1,38 +1,35 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import styles from "./style.module.css";
 import { useQueryClient, useMutation, QueryClient } from 'react-query';
-import { newProd, getProds } from '@/lib/ProdResquests';
-import { useReducer } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { newProd, getProds } from '@/lib/ProdResquests';
 import { toggleChangeAction, updateAction } from "@/redux/reducer";
 import { BsCheckCircleFill } from 'react-icons/bs'
 import { GrAdd } from "react-icons/gr";
-import axios from "axios";
 import InputUpload from "../Layout/InputUpload"
 
 
 
 function FormCreate() {
-  //REDUCE
+  //State
   const queryClient = useQueryClient();
-  const formReduce = (state, event) => {
-    try {
-      return{
-      ...state,
-      [event.target.name]: event.target.value
-    }
-    }catch(e){
-      console.log(e)
-    }
-  }
-  const [formData, setFormData] = useReducer(formReduce, {title: '', desc: '', price: '', category: ''})
+  const [formData, setFormData] = useState({title: '', desc: '', price: '', category: ''})
   const [errorMsg, setErroMsg] = useState("")
-
+  const [previewSource,setPreviewSource]=useState();
+  const [selectedFile, setSelectedFile] = useState();
+  const [file,setFile]=useState('');
+  const [urlFile,setUrlFile]=useState('');
   const visible = useSelector((state) => state.app.client.toggleForm)
-    const [previewSource,setPreviewSource]=useState();
-   const [selectedFile, setSelectedFile] = useState();
-    const [file,setFile]=useState('');
-    const [urlFile,setUrlFile]=useState('');
+
+  //handle
+  const handleChange = (e)=>{
+    const {name,value} = e.target;
+    setFormData((prev)=>{
+      return {...prev,[name]:value}
+    })
+      console.log(formData)
+
+  }
   //MUTATION
   const dispacth = useDispatch()
   const addMutation = useMutation(newProd, {
@@ -96,17 +93,22 @@ function FormCreate() {
 
   //TEST
   const checkProperties =(e) =>{
-    console.log(formData)
+    var pattern=/[^\d\.]/g
     e.preventDefault()
-    if(formData==undefined){
-      return setErroMsg(<span className={styles.errorMsg}>Preencha todos os dados</span>)
+    if (pattern.test(formData.price)){
+        console.log("in")
+        return setErroMsg(<span className={styles.errorMsg}>É permitido apenas números e "." como preço </span>)
     }
+    
     for (var key in formData) {
     console.log(formData[key])
-      if (formData[key] === undefined  ){
+    if (formData[key] === undefined || formData[key]==="" || previewSource=="" || previewSource==undefined ){
           console.log("empty")
         return setErroMsg(<span className={styles.errorMsg}>Preencha todos os dados</span>)
       }
+    }
+    if (typeof formData.price != 'number'){
+        console.log("não é numero")
     }
     setErroMsg(<span className={styles.okayMsg}>Dados preenchidos com sucesso</span>)
     sendForm()
@@ -140,10 +142,10 @@ function FormCreate() {
       {
         visible && (
           <form className={styles.board} onSubmit={checkProperties} >
-            <input name='title' onChange={setFormData} className={styles.input} type="text" placeholder='Nome' required />
-            <input name='desc' onChange={setFormData} className={styles.input} type="text" placeholder='Descrição' required/>
-            <input name='price' onChange={setFormData} inputmode="numeric" className={styles.input} type="text" placeholder='Preço' required />
-            <input name='category' onChange={setFormData}  className={styles.input} type="text" placeholder='Categoria' required />
+            <input name='title' onChange={handleChange} className={styles.input} type="text" placeholder='Nome'  />
+            <input name='desc' onChange={handleChange} className={styles.input} type="text" placeholder='Descrição' />
+            <input name='price' onChange={handleChange} inputmode="decimal" className={styles.input} type="text" placeholder='Preço'  />
+            <input name='category' onChange={handleChange}  className={styles.input} type="text" placeholder='Categoria'  />
             
 
             <label className={styles.picture} for="img" tabIndex="0">
@@ -153,7 +155,7 @@ function FormCreate() {
                   </span>
             </label>
 
-            <input name='img' id='img' className={styles.inputImg} onChange={handleFileInputChange} type="file" accept="image/*" required />
+            <input name='img' id='img' className={styles.inputImg} onChange={handleFileInputChange} type="file" accept="image/*"  />
 
             
            

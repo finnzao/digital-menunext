@@ -40,6 +40,14 @@ function FormUpdate(props,{x}) {
     //SEND FORM
     const sendForm = async (e) => {
         e.preventDefault()
+        if (inputData.title=="" || inputData.price=="" || inputData.desc==""){
+            return SetMsgInput("Preencha todos os campos")
+        }
+        var pattern=/[^\d\.]/g
+        if (pattern.test(inputData.price)){
+        return SetMsgInput("É permitido apenas números e '.' como preço ")
+        }
+        console.log(inputData)
         await UpdateMutation.mutate(inputData)
     }
 
@@ -55,10 +63,18 @@ function FormUpdate(props,{x}) {
     return (
         <div className={styles.box}>
                     <form className={styles.board} onSubmit={sendForm} >
+                        <div className={styles.itemForm}>
+                        <span className={styles.titleItem}>Produto:</span>
                         <input name='title' value={inputData.title} defaultValue={props.title} onChange={changehandle} className={styles.input} type="text" placeholder='Nome' />
+                        </div>
+                        <div className={styles.itemForm}>
+                         <span className={styles.titleItem} >Descrição:</span>
                         <input name='desc' value={inputData.desc} defaultValue={props.desc} onChange={changehandle} className={styles.input} type="text" placeholder='Descrição' />
-                        <input name='price' value={inputData.price} defaultValue={props.price} onChange={changehandle} className={styles.input} type="numer" placeholder='Preço' />
-     
+                        </div>
+                        <div className={styles.itemForm}>
+                         <span className={styles.titleItem}>Valor:</span>
+                            <span className={styles.valueInput} >&#36; <input name='price' value={inputData.price} defaultValue={props.price} onChange={changehandle} className={styles.input} type="numer" placeholder='Preço' /></span>
+                        </div>
                             <span className={styles.msgInput}>{msgInput}</span>
                         <button className={styles.buttonForm}>Confirmar Mudança <BsPencilFill /></button>
                     </form>

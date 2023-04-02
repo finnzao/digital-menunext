@@ -9,10 +9,26 @@
     height: 100%;
     
 }
-
+.itemForm{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.titleItem{
+    font-weight: bold;
+}
+.valueInput{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    gap:5px;
+}
 .input {
     border: 0;
     padding: 7px 0;
+    width: 100%;
     border-bottom: 1px solid #ccc;
 }
 

@@ -87,10 +87,6 @@
   max-width: 100%;
 }
 
-
-
-
-
 .buttonForm {
     align-items: center;
     background-clip: padding-box;
@@ -162,4 +158,10 @@
 }
 .okayMsg{
     color: green;
+}
+
+@media (max-width:425px) {
+    .picture{
+        width: 284px;
+    }
 }
