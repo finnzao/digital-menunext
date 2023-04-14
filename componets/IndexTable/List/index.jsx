@@ -1,13 +1,11 @@
 import Item from "../Item/";
 import styles from "./style.module.css";
-import {useTable} from "react-table";
-import {useMemo} from "react";
+
 const ProductsList = ({ prodList }) => {
-    /*<div className={styles.wrapper}>
-        {prodList.map((item) => (
-            <Item key={item._id} prodInfos={item} />
-                ))}
-    </div>*/
+    
+    const results = prodList.map(item=><Item key={item._id} prodInfos={item} />)
+
+    const content = results?.length? results:<div className={styles.notFound}>Produto não encontrado</div>
     return (
     <table className={styles.wrapper}>
     <thead className={styles.full}>
@@ -21,11 +19,7 @@ const ProductsList = ({ prodList }) => {
     </thead>
 
     <tbody className={styles.itensTable}>
-
-        {prodList.map((item) => (
-            <Item key={item._id} prodInfos={item} />
-                ))}
-
+        {content}
     </tbody>
     </table>
     )

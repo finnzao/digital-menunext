@@ -5,8 +5,11 @@
     align-items: center;
 }
 
+.full{
+    border: 1px solid black;
+
+}
 .full th{
-    border:1px solid black ;
     padding-left: 5px;
 }
 .title {
@@ -14,13 +17,27 @@
 }
 .titlesTable{
     font-weight: bold;
+    color: white;
+    background-color: #0B2447;
+    padding: 1rem;
+
+}
+.titlesTable th{
+    padding: 1rem;
+
+}
+.itensTable tr td{
+    padding: 8px 5px;
     color: black;
 }
-
-.itensTable tr td{
-    border: 1px solid black;
-    padding: 8px 5px;
+.itensTable tr:nth-child(even) {
+  background: #576CBC;
 }
+
+.itensTable tr:nth-child(odd) {
+  background: #A5D7E8;
+}
+
 .thDesc{
     width: 300px;
 }
@@ -29,14 +46,43 @@
 
 }
 .wrapper {
+    min-width: 400px;
     width: 100%;
     text-align: left;
-    margin: 0px 10px;
+    margin: 10px 10px;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+    background-color: grey;
+
+}
+
+.wrapper td{
+    padding: 1em;
 }
 .titleWrapper{
     display: flex;
     flex-direction: row;
     width: 100%;
+}
+.notFound{
+    padding-left: 10px;
+    min-height: 50px;
+    text-align: left;
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+@media (max-width:540px) {
+    .full th{
+    border:1px solid black ;
+    padding-left: 0px;
+    }
+
+    .titlesTable{
+        text-align: center;
+        padding-left: 0px;
+    }
 }
 @media (max-width:425px) {
     .title {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./style.module.css";
-import { changeState, getProds } from '@/lib/ProdResquests'
+import { changeState } from '@/lib/ProdResquests'
 
 const buttonToggle = ({ state, id }) => {
     const [isChecked, setChecked] = useState(state);
@@ -8,7 +8,6 @@ const buttonToggle = ({ state, id }) => {
     const handleCheck = async () => {
         setChecked((prevState) => !prevState)
         await changeState(!state, id)
-        console.log(!state)
     }
     return (
         <div className={styles.container}>
@@ -17,9 +16,7 @@ const buttonToggle = ({ state, id }) => {
 
                 <input onClick={handleCheck} className={styles.input} defaultChecked={isChecked} type="checkbox" />
                 <span className={styles.span} />
-                <label >
-
-                </label>
+          
             </label>
         </div>
     )

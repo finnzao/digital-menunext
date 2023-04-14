@@ -21,7 +21,7 @@
     display: grid;
     align-items: center;
     position: absolute;
-    height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
     z-index: 1;
@@ -55,8 +55,11 @@
     cursor: pointer;
 }
 .containerUpdate{
+    color: white;
     width: 100%;
-
+    position:fixed;
+    top: 25%; left: 0%;
+    padding: 10px;
 }
 .buttonIndex{
     height: 30px;
@@ -81,7 +84,6 @@
 
 .price {
     font-size: 18px;
-    font-weight: bold;
     color: var(--dark-text);
 }
 
@@ -112,7 +114,23 @@
     .box img {
         width: 200px;
         height: 200px;
-
     }
 
+}
+
+
+@media (max-width:540px) {
+    .table td {
+        font-size: 0.8rem;
+    }
+.title {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+.buttonIndex{
+    height: 20px ;
+    height: 20px ;
+    margin: auto auto;
+}
 }

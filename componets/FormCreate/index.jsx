@@ -4,15 +4,17 @@ import { useQueryClient, useMutation, QueryClient } from 'react-query';
 import { useSelector, useDispatch } from 'react-redux';
 import { newProd, getProds } from '@/lib/ProdResquests';
 import { toggleChangeAction, updateAction } from "@/redux/reducer";
-import { BsCheckCircleFill } from 'react-icons/bs'
+import { BsCheckCircleFill } from 'react-icons/bs';
 import { GrAdd } from "react-icons/gr";
+import ComboBox from "@/componets/Buttons/comboBox"
 import InputUpload from "../Layout/InputUpload"
 
 
 
-function FormCreate() {
+function FormCreate({data}) {
   //State
   const queryClient = useQueryClient();
+  const [newCategory,setNewCategory]=useState(false)
   const [formData, setFormData] = useState({title: '', desc: '', price: '', category: ''})
   const [errorMsg, setErroMsg] = useState("")
   const [previewSource,setPreviewSource]=useState();
@@ -21,15 +23,7 @@ function FormCreate() {
   const [urlFile,setUrlFile]=useState('');
   const visible = useSelector((state) => state.app.client.toggleForm)
 
-  //handle
-  const handleChange = (e)=>{
-    const {name,value} = e.target;
-    setFormData((prev)=>{
-      return {...prev,[name]:value}
-    })
-      console.log(formData)
 
-  }
   //MUTATION
   const dispacth = useDispatch()
   const addMutation = useMutation(newProd, {
@@ -37,6 +31,8 @@ function FormCreate() {
       queryClient.prefetchQuery('prods', getProds)
     }
   });
+  if (addMutation.isLoading) <div>Loading</div>
+  if (addMutation.isError) console.log("Error")
 
   //SEND FORM
   const sendForm = (e) => {
@@ -57,26 +53,35 @@ function FormCreate() {
     setFormData({title: '', desc: '', price: '', category: ''})
   }
   catch (error) {
-    console.log(error)
+    setErroMsg(error)
+  }
+}
+  
+  
+//handle
+  const handleChange = (e)=>{
+    if(event.target.id==="category"){
+      if(event.target.value==="*"){
+        setNewCategory(true)
+      }else{
+        setNewCategory(false)
+      }
+    }
+    const {name,value} = e.target;
+    setFormData((prev)=>{
+      return {...prev,[name]:value.trim()}
+    })
   }
 
-
-}
-
-
-  if (addMutation.isLoading) <div>Loading</div>
-  if (addMutation.isError) console.log("Error")
-
-  //SHOW FORMCREAET
+  //SHOW FORM CREATE
   const onUpdate = () => {
     dispacth(toggleChangeAction())
   }
 
 
-  //UPLOAD
+  //UPLOAD & PREVIEW IMG
 
-   ///////////
-    const handleFileInputChange = (e) => {//MOSTRANDO IMAGEM SELECIONADA
+    const handleFileInputChange = (e) => {
         const file = e.target.files[0];
         previewFile(file);
         setSelectedFile(file);
@@ -91,49 +96,35 @@ function FormCreate() {
     };
 
 
-  //TEST
+  //CONFIRM BUTTOON & VERIFICATION
   const checkProperties =(e) =>{
-    var pattern=/[^\d\.]/g
+    console.log(newCategory)
+    console.log(formData)
+    var pattern= /\d?[,.]?[\d]$/g;
     e.preventDefault()
-    if (pattern.test(formData.price)){
-        console.log("in")
-        return setErroMsg(<span className={styles.errorMsg}>É permitido apenas números e "." como preço </span>)
+    if (!pattern.test(formData.price)){
+        return setErroMsg(<span className={styles.errorMsg}>É permitido apenas números e "." ou "," na aba preço </span>)
     }
-    
+    formData.price= formData.price.replace(",", ".");
+    console.log(formData.price)
     for (var key in formData) {
-    console.log(formData[key])
-    if (formData[key] === undefined || formData[key]==="" || previewSource=="" || previewSource==undefined ){
-          console.log("empty")
+    if (formData[key] === undefined || formData[key] === "*" || formData[key]==="" || previewSource=="" || previewSource==undefined ){
         return setErroMsg(<span className={styles.errorMsg}>Preencha todos os dados</span>)
       }
     }
-    if (typeof formData.price != 'number'){
-        console.log("não é numero")
-    }
+    console.log(formData.price)
     setErroMsg(<span className={styles.okayMsg}>Dados preenchidos com sucesso</span>)
     sendForm()
     setPreviewSource('');
     setSelectedFile('');
 }
 
-  const Validation=(e)=>{
-      e.preventDefault();
-      if( (Object.keys(formData).length==0) || (Object.values(formData)=='')){
-        return setErroMsg("error")
-      }
 
-      setErroMsg(false);
-      sendForm()
-      setPreviewSource('');
-      setSelectedFile('');
-  }
 
   //UPLOAD IMAGE
   const upload = (files)=>{
-    console.log(files[0])
     const fileData = new FormData();
     fileData.append("file",files[0])
-    console.log(fileData)
   }
 
   return (
@@ -142,24 +133,48 @@ function FormCreate() {
       {
         visible && (
           <form className={styles.board} onSubmit={checkProperties} >
-            <input name='title' onChange={handleChange} className={styles.input} type="text" placeholder='Nome'  />
-            <input name='desc' onChange={handleChange} className={styles.input} type="text" placeholder='Descrição' />
-            <input name='price' onChange={handleChange} inputmode="decimal" className={styles.input} type="text" placeholder='Preço'  />
-            <input name='category' onChange={handleChange}  className={styles.input} type="text" placeholder='Categoria'  />
-            
 
-            <label className={styles.picture} for="img" tabIndex="0">
+            <span>
+            <p className={styles.titleInput}>Nome</p>
+            <input name='title' onChange={handleChange} className={styles.input} type="text" placeholder='Nome' maxLength="20" />
+            </span>
+
+            <span>
+            <p className={styles.titleInput}> Descrição</p>
+            <textarea input name='desc' onChange={handleChange} className={styles.input}  type="text" placeholder='Descrição' rows="4"></textarea>
+            </span>
+
+            <span>
+            <p className={styles.titleInput}>Preço</p>
+            <input name='price' onChange={handleChange} inputMode="decimal" className={styles.input} type="text" placeholder='Preço'  maxLength="6"  />
+            </span>
+  
+            <span className={styles.containerCategory}>
+            <p className={styles.titleInput}>Categoria</p>
+
+            <select  onChange={handleChange}  id="category" name="category" className={styles.comboBox}>
+            <option value=''>Selecionar Categoria</option>
+             <ComboBox data={data}/>
+            <option className={styles.newCategory} value='*' onClick={(e)=>console.log(e)}>Nova Categoria</option>
+
+            </select>
+            {
+              newCategory &&( 
+              <input name='category' onChange={handleChange}  className={styles.input} type="text" placeholder='Nome da nova categoria'  />
+            )
+            }
+            </span>           
+
+            <label className={styles.picture} htmlFor="img" tabIndex="0">
                   <span className={styles.picture__image}>
                   Escolher imagem
                   {previewSource && (<img className={styles.picture__image} src={previewSource} alt="chosen"/>)}
                   </span>
             </label>
 
-            <input name='img' id='img' className={styles.inputImg} onChange={handleFileInputChange} type="file" accept="image/*"  />
-
             
-           
-          
+            <input name='img' id='img' className={styles.inputImg} onChange={handleFileInputChange} type="file" accept="image/*"  />
+                         
             <span className={styles.msgSpan} >{errorMsg}</span>
             <button className={styles.buttonForm}>Confirmar  <BsCheckCircleFill /></button>
           </form>

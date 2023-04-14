@@ -62,7 +62,8 @@
 }
 
 .cardapio{
-		background-color: #dbdbdbad;;
+		background-color: #dbdbdbad;
+		min-height: 100vh;
 }
 
 .title{

@@ -24,7 +24,7 @@ const Item = ({ prodInfos }) => {
                 !showCreateForm && 
                 
                 <>
-                <tr>
+                <tr className={styles.table}>
                 <td>
                  <h1 className={styles.title}>{prodInfos.title}</h1>
                  </td>

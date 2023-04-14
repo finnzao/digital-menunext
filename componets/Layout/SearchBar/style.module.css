@@ -1,0 +1,49 @@
+.box{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin:20px 0px;
+}
+.seachButton{
+	color: black;
+	height: 100%;
+}
+.seachButton svg{
+	height: 100%;
+}
+.input{
+	border: 1px solid black;
+	width: 80%;
+	border-radius: 10px;
+	height:50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: white;
+}
+.input:focus{
+	    background-color: rgba(219, 219, 219, 1);
+    transition: 0.4s;
+}
+.seachInput{
+	width: 100%;
+	border-radius: 10px;
+	padding: 10px;
+	color: black;
+
+	font-style: italic;
+}
+
+.seachInput:focus, .seachInput:focus{
+    outline: none;
+}
+.iconSearch{
+	height: 500px;
+}
+@media (max-width:540px) {
+    .input{
+    	height: 35px;
+    	font-size: 0.9rem;
+    }
+}

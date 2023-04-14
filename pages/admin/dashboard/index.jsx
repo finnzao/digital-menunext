@@ -3,23 +3,21 @@ import IndexTable from '@/componets/IndexTable';
 import FormCreate from '@/componets/FormCreate';
 import { useSelector } from 'react-redux';
 import { useReducer } from 'react';
-const formReducer = (state, event) => {
-    return {
-        ...state,
-        [event.target.name]: event.target.value
-    }
-}
+import { useQuery } from 'react-query';
+import { getProds } from '@/lib/ProdResquests';
+import Loading from "@/componets/Preloader"
+
 function DashBoard() {
 
+    const { data, isError, isLoading,isSuccess } = useQuery('prods', getProds);
+    if (isLoading) return < Loading />
+    if (isError) return <div>{isError}</div> 
 
-    const formId = useSelector((state) => state.app.client.formId);
-    const [formData, setFormData] = useReducer(formReducer, {})
     return (
 
         <div className={styles.container}>
-            {FormCreate({ formId, formData, setFormData })}
-
-            <IndexTable />
+            <FormCreate data={data}/>
+            <IndexTable data={data} />
         </div>
 
     )
