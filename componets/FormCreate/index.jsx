@@ -98,21 +98,18 @@ function FormCreate({data}) {
 
   //CONFIRM BUTTOON & VERIFICATION
   const checkProperties =(e) =>{
-    console.log(newCategory)
-    console.log(formData)
     var pattern= /\d?[,.]?[\d]$/g;
     e.preventDefault()
     if (!pattern.test(formData.price)){
         return setErroMsg(<span className={styles.errorMsg}>É permitido apenas números e "." ou "," na aba preço </span>)
     }
     formData.price= formData.price.replace(",", ".");
-    console.log(formData.price)
     for (var key in formData) {
     if (formData[key] === undefined || formData[key] === "*" || formData[key]==="" || previewSource=="" || previewSource==undefined ){
         return setErroMsg(<span className={styles.errorMsg}>Preencha todos os dados</span>)
       }
     }
-    console.log(formData.price)
+
     setErroMsg(<span className={styles.okayMsg}>Dados preenchidos com sucesso</span>)
     sendForm()
     setPreviewSource('');
@@ -136,7 +133,7 @@ function FormCreate({data}) {
 
             <span>
             <p className={styles.titleInput}>Nome</p>
-            <input name='title' onChange={handleChange} className={styles.input} type="text" placeholder='Nome' maxLength="20" />
+            <input name='title' onChange={handleChange} className={styles.input} type="text" placeholder='Nome' maxLength="100" />
             </span>
 
             <span>
@@ -155,7 +152,7 @@ function FormCreate({data}) {
             <select  onChange={handleChange}  id="category" name="category" className={styles.comboBox}>
             <option value=''>Selecionar Categoria</option>
              <ComboBox data={data}/>
-            <option className={styles.newCategory} value='*' onClick={(e)=>console.log(e)}>Nova Categoria</option>
+            <option className={styles.newCategory} value='*' >Nova Categoria</option>
 
             </select>
             {

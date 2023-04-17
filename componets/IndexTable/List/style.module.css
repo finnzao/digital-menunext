@@ -18,7 +18,7 @@
 .titlesTable{
     font-weight: bold;
     color: white;
-    background-color: #0B2447;
+    background-color: rgba(32, 71, 140, 1);
     padding: 1rem;
 
 }
@@ -31,11 +31,11 @@
     color: black;
 }
 .itensTable tr:nth-child(even) {
-  background: #576CBC;
+  background: rgba(140, 140, 140, 1);
 }
 
 .itensTable tr:nth-child(odd) {
-  background: #A5D7E8;
+  background: rgba(190, 190, 190, 1);
 }
 
 .thDesc{
