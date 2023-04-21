@@ -28,3 +28,6 @@ let categories= (function () {
         return categories
     })()
 ```
+## Pagina do DashBoard
+
+
