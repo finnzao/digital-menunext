@@ -33,7 +33,7 @@ Para melhorar o desempenho da aplicação foi feito apenas um fetch data  no ní
 ```jsx
 
 const { data, isError, isLoading,isSuccess } = useQuery('prods', getProds);
-//isso é recorrete de partes do componente pai "dashboard/index.jsx" 
+//isso é um recorte do codigo do componente pai "dashboard/index.jsx" 
 <FormCreate data={data} />
 <IndexTable data={data} />
 ```
