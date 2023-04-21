@@ -19,7 +19,7 @@
     font-weight: bold;
     color: white;
     background-color: rgba(32, 71, 140, 1);
-    padding: 1rem;
+    padding: 10px 12px;
 
 }
 .titlesTable th{
@@ -27,8 +27,8 @@
 
 }
 .itensTable tr td{
-    padding: 8px 5px;
     color: black;
+    font-weight: bold;
 }
 .itensTable tr:nth-child(even) {
   background: rgba(140, 140, 140, 1);
@@ -88,7 +88,10 @@
     .title {
         font-size: 3rem;
     }
-
+    .titlesTable th{
+    font-size: 14px;
+    padding: 10px 5px;
+}
     .wrapper {
         padding: 0;
     }

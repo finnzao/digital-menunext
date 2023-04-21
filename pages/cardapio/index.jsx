@@ -12,9 +12,9 @@ export default function Cardapio() {
     const [categorySelectValue,setCategorySelectValue]=useState("Todos")
     if (isLoading) return <Preloader/>
     if (isError) return <div>{isError}</div>
-    //sort fit state
+    //sort by state
     const sortArray = data.sort((a, b) => b.state - a.state);
- 
+    console.log(data)
     let categories= (function () {
         const categories = sortArray.reduce(function (values, item) {
         if (!values.includes(item.category)) {//se dentro do array values ainda tem a categoria do item atual

@@ -16,7 +16,7 @@ function DashBoard() {
     return (
 
         <div className={styles.container}>
-            <FormCreate data={data}/>
+            <FormCreate data={data} />
             <IndexTable data={data} />
         </div>
 

@@ -1,16 +1,23 @@
 import styles from "./style.module.css";
 import { BiSearchAlt } from "react-icons/bi";
 const SearchBar= ({posts,setSearchResults})=>{
+		const handleSubmit=(e)=>{
+			e.preventDefault()
+			if(!e.target.value) return setSearchResults(posts)
 
-		
-		const handleSubmit=(e)=>e.preventDefault()
+			const resultsArray=posts.filter(post =>post.title.includes(e.target.value)) ||
+			post.body.includes(e.target.value)
+			setSearchResults(resultsArray)
+		}
 		const handleSearchChange =(e)=>{
 			if(!e.target.value) return setSearchResults(posts)
 
 			const resultsArray=posts.filter(post =>post.title.includes(e.target.value)) ||
 			post.body.includes(e.target.value)
 			setSearchResults(resultsArray)
+				console.log(resultsArray)
 		};
+
 
 		return(
 
