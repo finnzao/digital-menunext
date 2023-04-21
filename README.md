@@ -37,3 +37,18 @@ const { data, isError, isLoading,isSuccess } = useQuery('prods', getProds);
 <FormCreate data={data} />
 <IndexTable data={data} />
 ```
+
+#### Form create 
+Boa parte dos tipos de dados para criação do produto são string(Nome,desc,Categoria) e uma float(Preço) , porém é preciso adiciona uma imagem e adicionar imagens direito no banco de dados é uma pratica ruim , principalmente pelo esforço de tratar com blob data(tipo de data relacionado para imagens) na hora de montar a aplicação , então optei em usar o clodinary como banco de dados das imagens , e apenas armazenado o link da imagem no meu objeto de criação do produto.
+
+Para fazer o upload da imagem para o clodinary ,e exibir previa no campo de criação é preciso transformar primeiro os dados da imagens em uma representação de string 
+```jsx
+const previewFile = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);//transformando na represetanção em STRING da imagem
+        reader.onloadend = () => {
+            setPreviewSource(reader.result);
+        };
+    }; 
+```
+Para aumentar o fluxo da aplicação , o upload da imagem está sendo feito em um midleware após a verificação de todos os dados do formulário de criação.
