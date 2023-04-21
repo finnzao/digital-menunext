@@ -29,5 +29,11 @@ let categories= (function () {
     })()
 ```
 ## Pagina do DashBoard
+Para melhorar o desempenho da aplicação foi feito apenas um fetch data  no nível de componente de maior ordem de herança ,assim ocorre apenas uma verificação sobre os status dos dados recebido ,evitando novas verificação de dados para cada vez que irá ser usado em algum componente filho .
+```jsx
 
-
+const { data, isError, isLoading,isSuccess } = useQuery('prods', getProds);
+//isso é recorrete de partes do componente pai "dashboard/index.jsx" 
+<FormCreate data={data} />
+<IndexTable data={data} />
+```
