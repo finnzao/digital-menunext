@@ -1,4 +1,7 @@
 ## Digital Menu Next
 
-Paper menu for restaurants is expensive and inefficient, right?<br>
-So thinking about it, here is a digital menu with editing features for the products that will be displayed, and also if that item is (or is not) available to serve
+O projeto é baseado na exibição de dados  , e como queria usar um método atualizasse meu client side para cada mudanças feita no meu banco de dados  , então optei pela libary useQuery que é um State Management do React, assim poderia ter uma controle de resposta entre meu frontEnd e banco de dados.
+
+```jsx
+const { data, isError, isLoading,isSuccess } = useQuery('prods', getProds);
+```
