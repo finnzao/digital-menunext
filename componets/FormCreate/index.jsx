@@ -49,7 +49,6 @@ function FormCreate({data}) {
 
     addMutation.mutate(model)
     setErroMsg("")
-    onUpdate()
     setFormData({title: '', desc: '', price: '', category: ''})
   }
   catch (error) {

@@ -8,9 +8,9 @@ import { BsPencilFill } from 'react-icons/bs';
 
 
 function FormUpdate(props,{x}) {
-    //Input result
+
     let [msgInput,SetMsgInput]=useState("")
-    //Querry
+
  
     const queryClient=useQueryClient()
     const _id=props.id
@@ -22,7 +22,7 @@ function FormUpdate(props,{x}) {
         }
     })
 
-    //VALORES INPUT
+
     const [inputData,SetInputData]=useState({
         title:props.title,
         desc:props.desc,
@@ -31,13 +31,13 @@ function FormUpdate(props,{x}) {
     function changehandle(e){
         SetInputData({...inputData,[e.target.name]:e.target.value})
     }
-    //
+
     const {isLoading,isError,data,error}=useQuery(['prods',_id],()=>getProd(_id))
     if(isLoading) return <div>Carregando...</div>
     if(isError)SetMsgInput(<span className={styles.red}>Error </span>); 
 
 
-    //SEND FORM
+
     const sendForm = async (e) => {
         e.preventDefault()
         if (inputData.title=="" || inputData.price=="" || inputData.desc==""){
@@ -51,9 +51,7 @@ function FormUpdate(props,{x}) {
         await UpdateMutation.mutate(inputData)
     }
 
-    //MOSTRAR RESPOSTA
-    
-    //SHOW FORMC REAET
+
     const onUpdate = () => {
         dispacth(toggleChangeAction())
         if (visible) {

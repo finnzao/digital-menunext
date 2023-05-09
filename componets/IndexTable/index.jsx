@@ -7,7 +7,7 @@ function IndexTable({data}) {
     const [searchResults,setSearchResults]=useState(data)
     useEffect(() => {
         setSearchResults(data)
-    },[data])
+    },[data])//Watch changes of data
     return  (
         <div className={styles.container}>
             <h1 className={styles.title}> DashBoard</h1>

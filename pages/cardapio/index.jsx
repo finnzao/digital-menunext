@@ -5,7 +5,8 @@ import CategoriesButtons from "@/componets/Buttons/buttonsCategories";
 import { useQuery } from 'react-query';
 import { useState } from 'react';
 import Preloader from "@/componets/Preloader";
-import background from "@/assents/background.jpeg"
+
+
 export default function Cardapio() {
     const [categorySelect,setCategorySelect]=useState("Todos")
     const { data, isError, isLoading } = useQuery('prods', getProds);
