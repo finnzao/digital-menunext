@@ -2,6 +2,7 @@ import { createContext,useState} from "react";
 import {setCookie} from 'nookies';
 import Router from 'next/router';
 import {signInRequest} from '@/lib/Login';
+import axios from "axios";
 type User={
 	email:string,
 }
@@ -22,23 +23,25 @@ export function AuthProvider({children}){
 	const [user,setUser]=useState<User | null>(null)
 	const isAuthenTicated= !!user;
 	
-	async function signIn({email,password}){
-		console.log('abc')
-		const {token} = await axios.post(`/api/login/`,
-		{email,password});//vericação do backend
+
+
+
+	async function signIn(data){
+		const token = await axios.post(`/api/login/`,data);//vericação do backend
 		console.log(token)
-		setCookie(undefined,'digitalmenu.token',{
+				setCookie(undefined,'digitalmenu.token',token.data,{
 			maxAge: 60*60*1, // 1 hour
 		})
-
-		setUser(user);
-		console.log(user)
-		Router.push('/admin/dashboard');
+		console.log("AC")
+		//setUser(user);
+		//console.log(user)
+		//console.log( token.data)
+		//Router.push('/admin/dashboard');
 	}
 	return (
-		<AuthContext.Provider value={{ signIn,isAuthenTicated }}>
+		<AuthContext.Provider value={{user, signIn,isAuthenTicated }}>
 		{children}
 		</AuthContext.Provider>
 
-	)
+	)   
 }

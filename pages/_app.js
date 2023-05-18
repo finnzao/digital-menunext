@@ -1,4 +1,4 @@
-import '@/styles/globals.css';
+ import '@/styles/globals.css';
 import { QueryClient, QueryClientProvider} from 'react-query'
 import { store } from "@/redux/store";
 import { Provider } from 'react-redux';
