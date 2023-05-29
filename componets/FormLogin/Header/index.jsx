@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Icon from "@/assents/icon.png";
+import Icon from "../../../assents/icon.png";
 import styles from "./style.module.css"
 
 function Header() {

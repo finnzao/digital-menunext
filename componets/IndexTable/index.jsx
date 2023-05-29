@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 import styles from "./style.module.css";
 import List from "./List/index";
-import SearchBar from "@/componets/Layout/SearchBar";
+import SearchBar from "../../componets/Layout/SearchBar";
 function IndexTable({data}) {
     
     const [searchResults,setSearchResults]=useState(data)

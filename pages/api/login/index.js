@@ -1,5 +1,5 @@
-import dbConnect from "@/db/mongo";
-import User from "@/model/Login";
+import dbConnect from "../../../db/mongo";
+import User from "../../../model/Login";
 import { v4 as uuid} from 'uuid';
 
 export default async function handler(req, res) {
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
                 const {email,password}=req.body;
                 const userValid = await User.findOne({user:email})
                 if(!userValid || userValid.password !== password){
-                    res.status(401).json("Error")
+                    res.status(401).json()
                 }
                 
                 //check password match

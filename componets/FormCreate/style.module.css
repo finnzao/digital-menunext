@@ -5,6 +5,11 @@
     color: black;
     flex-direction: column;
 }
+.title{
+    font-size: 2rem;
+    text-align: center;
+    margin: 50px 0px 20px 0px;
+}
 .titleInput{
     font-family: 'Inter', sans-serif;
 }

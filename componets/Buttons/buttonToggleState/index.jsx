@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./style.module.css";
-import { changeState } from '@/lib/ProdResquests'
+import { changeState } from '../../../lib/ProdResquests';
 
 const buttonToggle = ({ state, id }) => {
     const [isChecked, setChecked] = useState(state);

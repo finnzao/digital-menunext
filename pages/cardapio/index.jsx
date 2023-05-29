@@ -1,10 +1,10 @@
 import styles from "./style.module.css";
-import { getProds } from '@/lib/ProdResquests';
-import CardapioItem from "@/componets/Layout/CardapioItem";
-import CategoriesButtons from "@/componets/Buttons/buttonsCategories";
+import { getProds } from '../../lib/ProdResquests';
+import CardapioItem from "../../componets/Layout/CardapioItem";
+import CategoriesButtons from "../../componets/Buttons/buttonsCategories";
 import { useQuery } from 'react-query';
 import { useState } from 'react';
-import Preloader from "@/componets/Preloader";
+import Preloader from "../../componets/Preloader";
 
 
 export default function Cardapio() {

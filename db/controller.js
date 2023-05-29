@@ -1,5 +1,5 @@
 /** CONTROLER **/
-import Product from "@/model/Menu";
+import Product from "../model/Menu";
 
 
 //GET

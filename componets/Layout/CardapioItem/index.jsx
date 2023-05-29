@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 import Image from 'next/image';
-import SoldOut from "@/assents/soldout.png";
+import SoldOut from "../../../assents/soldout.png";
 export default function CardapioItem({prodInfos}) {
   return (
         <div className={prodInfos.state?styles.itemCardapio:styles.itemCardapioNone}>

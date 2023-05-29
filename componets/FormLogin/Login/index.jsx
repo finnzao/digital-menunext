@@ -3,7 +3,7 @@ import { loginFields } from '../constants/formFields';
 import {useForm} from 'react-hook-form'
 import Input from '../Input';
 import styles from './style.module.css'
-import {AuthContext} from '@/contexts/AuthContext';
+import {AuthContext} from '../../../contexts/AuthContext';
 import {useContext} from 'react';
 import axios from "axios";
 
@@ -23,13 +23,12 @@ export default function Login(){
 
     const handleSignIn= async() =>{
         try{
-        signIn(loginState)
+        await signIn(loginState)
         //const response = await axios.post("/api/login/",loginState);//vericação do backend
         //console.log(loginState)
-        setErrorMsg("")
+        setErrorMsg("Dados Corretos")
         }catch (err){
-            console.log(err)
-            setErrorMsg(err.message)
+            setErrorMsg("Dados Invalidos")
         }
                
         
