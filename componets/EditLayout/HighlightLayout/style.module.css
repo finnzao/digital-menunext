@@ -1,0 +1,69 @@
+.container h1 {
+    font-size: 2rem;
+}
+
+.box {
+    display: flex;
+}
+
+.new {
+    border: 1px solid rgba(128, 128, 128, 0.398);
+    width: 300px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    flex-direction: column;
+}
+.link{
+    display: flex;
+}
+.closeNav {
+    color: black;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 10px;
+
+}
+
+.highlighBox {
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.top h2 {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.new:hover {
+    background-color: rgba(202, 202, 202, 0.705);
+    transition: 0.5s;
+
+}
+
+@media (max-width:768px) {
+    .link{
+        justify-content: center;
+    }
+    .new {
+        width: 250px;
+        height: 200px;
+    }
+
+    .container h1 {
+        font-size: 1.4rem;
+    }
+}

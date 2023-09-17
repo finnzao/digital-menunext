@@ -2,8 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import styles from "./style.module.css";
 import { useQuery, useMutation, useQueryClient } from 'react-query';
-import { getProd,updateProd,getProds } from '@/lib/ProdResquests';
-import { toggleChangeAction, updateAction } from "@/redux/reducer"; 
+import { getProd,updateProd,getProds } from '../../lib/ProdResquests';
+import { toggleChangeAction, updateAction } from "../../redux/reducer"; 
 import { BsPencilFill } from 'react-icons/bs';
 
 

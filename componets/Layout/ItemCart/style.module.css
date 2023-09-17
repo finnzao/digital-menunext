@@ -1,0 +1,47 @@
+
+
+.imgContaienr{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+}
+.imgContaienr img {
+    width: 100%;
+    height: 100%;
+}
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 40px;
+    align-items: center;
+}
+
+
+.date{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.quantity{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantity span{
+    cursor: pointer;
+}
+.remove button{
+    color: rgba(255, 255, 255, 0.533);
+}
+
+@media screen and (max-width: 768px) {
+
+    .imgContaienr{
+        width: 60px;
+        height: 60px;
+    }
+	
+}

@@ -9,15 +9,22 @@
 	align-content: center;
 	color: black;
 	padding: 40px;
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
 }
 
 .container {
+	
     position: relative;
-    color: white;
+    color: rgb(255, 255, 255);
     min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(to top, #b8b4c7 0%, #537895 100%);
+}
+
+.container input {
+	color: rgba(0, 0, 0, 0.477);
 }

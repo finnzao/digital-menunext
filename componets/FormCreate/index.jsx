@@ -2,11 +2,11 @@ import { useState} from 'react';
 import styles from "./style.module.css";
 import { useQueryClient, useMutation, QueryClient } from 'react-query';
 import { useSelector, useDispatch } from 'react-redux';
-import { newProd, getProds } from '@/lib/ProdResquests';
-import { toggleChangeAction, updateAction } from "@/redux/reducer";
+import { newProd, getProds } from '../../lib/ProdResquests';
+import { toggleChangeAction, updateAction } from "../../redux/reducer";
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { GrAdd } from "react-icons/gr";
-import ComboBox from "@/componets/Buttons/comboBox"
+import ComboBox from "../../componets/Buttons/comboBox";
 import InputUpload from "../Layout/InputUpload"
 
 
@@ -125,9 +125,7 @@ function FormCreate({data}) {
 
   return (
     <div className={styles.box}>
-      <div> <span className={styles.toggleForm} onClick={() => onUpdate()}><GrAdd />Adicionar Produto</span></div>
-      {
-        visible && (
+          <h1 className={styles.title}>Novo Produto</h1>
           <form className={styles.board} onSubmit={checkProperties} >
 
             <span>
@@ -174,8 +172,7 @@ function FormCreate({data}) {
             <span className={styles.msgSpan} >{errorMsg}</span>
             <button className={styles.buttonForm}>Confirmar  <BsCheckCircleFill /></button>
           </form>
-        )
-      }
+ 
 
     </div>
   )

@@ -24,6 +24,10 @@ const ProductSchema = new mongoose.Schema({
         type: [Number],// [ ] -> obh
         required: true
     },
+    highlight:{
+        type:Boolean,
+        default:false,
+    },
     state: {
         type: Boolean,
         default: true,

@@ -1,12 +1,10 @@
 import styles from "./style.module.css";
-import ButtonDelete from "@/componets/Buttons/buttonDelete";
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleChangeAction, updateAction } from "@/redux/reducer";
+import ButtonDelete from "../../../componets/Buttons/buttonDelete";
 import { AiFillEdit } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiFileEditLine } from "react-icons/ri";
-import FormUpdate from '@/componets/FormUpdate';
-import ButtonToggle from "@/componets/Buttons/buttonToggleState";
+import FormUpdate from '../../../componets/FormUpdate';
+import ButtonToggle from "../../../componets/Buttons/buttonToggleState";
 import { useState } from 'react';
 const Item = ({ prodInfos }) => {
     const price = prodInfos.price[0].toFixed(2);

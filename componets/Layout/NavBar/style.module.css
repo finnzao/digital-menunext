@@ -1,0 +1,53 @@
+.nav {
+    height: 90px;
+    background-color: var(--color-background-nav);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+.menu {
+    color: white;
+}
+
+.title {
+    color: whitesmoke;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+}
+.cartOpen{
+    background-color: rgba(128, 128, 128, 0.609);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    color: white;
+    cursor: default;
+    display: block;
+    transition: 1s;
+    transform: translate(1s);
+}
+.box{
+    width: 500px;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    padding: 40px;
+}
+.cart {
+    color: white;
+    display: flex;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .box{
+        width: 100%;
+    }
+
+}

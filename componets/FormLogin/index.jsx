@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Icon from "@/assents/icon.png";
 import Header from "./Header"
 import Login from './Login';
 import styles from "./style.module.css"
@@ -16,3 +14,4 @@ function FormLogin() {
 }
 
 export default FormLogin;
+

@@ -1,9 +1,9 @@
 import styles from "./style.module.css";
-import { changeState, getProds } from '@/lib/ProdResquests'
 
 
 
-const buttonsCategories = ({category,setCategorySelect}) => {  
+const buttonsCategories = ({category,setCategorySelect}) => {
+      
     let categorySelect=(e)=>{
     setCategorySelect(e.target.id)
     }

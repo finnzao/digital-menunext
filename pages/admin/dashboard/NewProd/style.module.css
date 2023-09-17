@@ -1,0 +1,17 @@
+.container {
+    position: relative;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box{
+    width: 100%;
+    display: flex;
+}
+
+.space{
+ width: 90px;
+}

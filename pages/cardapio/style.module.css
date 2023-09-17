@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 
-.head{
+.head {
 	height: 150px;
-	background-color: var( --color-head);
+	background-color: var(--color-head);
 	font-size: 1.2rem;
 	text-align: center;
-	color:orange ;
+	color: orange;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -13,110 +13,147 @@
 	font-family: 'Sawarabi Mincho', serif;
 	background-image: url("https://images.pexels.com/photos/2564252/pexels-photo-2564252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 	background-size: cover;
-	background-position:bottom ;
+	background-position: bottom;
 }
-.headText{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.headText {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-.category{
+
+.category {
 	width: 100%;
 	display: flex;
 	text-align: center;
 	justify-content: center;
 	margin-bottom: 2rem;
 }
-.category h1{
+
+.category h1 {
 	font-size: 2rem;
 	text-transform: uppercase;
-	color: ;
 }
 
-.nine h1 {
-  text-align:center; font-size:50px; text-transform:uppercase; color:#222; letter-spacing:1px;
-  font-family:"Playfair Display", serif; font-weight:400;
+.titlegray h1 {
+	text-align: center;
+	font-size: 50px;
+	text-transform: uppercase;
+	color: #222;
+	letter-spacing: 1px;
+	font-family: "Playfair Display", serif;
+	font-weight: 400;
 
 }
-.nine h1 span {
 
-  margin-top: 5px;
-    font-size:15px; color:#444; word-spacing:1px; font-weight:normal; letter-spacing:2px;
-    text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
+.titlegray h1 span {
 
-    display: grid;
-    grid-template-columns: 1fr max-content 1fr;
-    grid-template-rows: 27px 0;
-    grid-gap: 20px;
-    align-items: center;
+	margin-top: 5px;
+	font-size: 15px;
+	color: #444;
+	word-spacing: 1px;
+	font-weight: normal;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	font-family: "Raleway", sans-serif;
+	font-weight: 500;
+
+	display: grid;
+	grid-template-columns: 1fr max-content 1fr;
+	grid-template-rows: 27px 0;
+	grid-gap: 20px;
+	align-items: center;
 }
 
-.nine h1 span:after,.nine h1 span:before {
-    content: " ";
-    display: block;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-    height: 5px;
-  background-color:#f8f8f8;
+.titlegray h1 span:after,
+.titlegray h1 span:before {
+	content: " ";
+	display: block;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	height: 5px;
+	background-color: #f8f8f8;
 }
 
-.cardapio{
-		background-color: #dbdbdbad;
-		min-height: 100vh;
+.cardapio {
+	position: relative;
+	background-color: #dbdbdbad;
+	min-height: 100vh;
 }
 
-.title{
+.title {
 	width: max-content;
 	font-size: 2rem;
-    font-weight: bolder;
+	font-weight: bolder;
 
 }
-.separation{
+
+.separation {
 	width: 200px;
 	border: 1px solid black;
 }
-.container{
-    padding: 4rem 0;
+
+.container {
+	padding: 2rem 0;
+	min-height: 100vh;
 }
 
-.gridCard{
-	 width: 95vw;
-    margin: 0 auto;
-    max-width: 1170px;
-    display: grid;
-    /*auto-fit =ocupar toda tela , auto-fill ocupado toda o espaço da div*/
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 2rem;
-}
-.boxButtons{
+.gridCard {
+	
+	justify-items: center;
+	min-height: 90vh;
+	width: 95vw;
+	margin: 0 auto;
+	max-width: 1170px;
 	display: grid;
-	padding: 0px 40px;
+	/*auto-fit =ocupar toda tela , auto-fill ocupado toda o espaço da div*/
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-column-gap: 1.5rem;
+	grid-row-gap: 2rem;
+}
+
+.boxButtons {
+	display: grid;
 	justify-content: center;
-	grid-template-columns: repeat(auto-fit, minmax(70px,120px));
+	grid-template-columns: repeat(auto-fit, minmax(70px, 120px));
 	margin-bottom: 3rem;
 	gap: 0px 30px;
 }
 
 
 
-@media screen and (max-width: 468px){
-	.head{
+@media screen and (max-width: 468px) {
+	.gridCard {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.head {
 		font-size: 1.5rem;
 	}
-	.title{
+
+	.title {
 		font-size: 1.4rem;
 	}
-			.nine h1 {
-  	text-align:center; font-size:30px; 
+
+	.titlegray h1 {
+		text-align: center;
+		font-size: 30px;
 	}
-	.boxButtons{
-		gap:0px 10px;
+
+	.boxButtons {
+		gap: 0px 10px;
+	}
+	.gridCard {
+	
+		justify-items: start;
 	}
 }
-@media screen and (max-width: 375px){
-		.nine h1 {
-  	text-align:center; font-size:30px; 
+
+@media screen and (max-width: 375px) {
+	.titlegray h1 {
+		text-align: center;
+		font-size: 30px;
 	}
 }

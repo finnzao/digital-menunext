@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Icon from "@/assents/icon.png";
+import Icon from "../../../assents/icon.png";
 import styles from "./style.module.css"
 
 function Header() {
@@ -9,7 +9,7 @@ function Header() {
                 <Image 
                     alt=""
                     src={Icon}/>
-                        <h1>LOGIN</h1>
+                        <h1>Dashboard</h1>
             </div>
 
         </div>

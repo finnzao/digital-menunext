@@ -1,0 +1,51 @@
+.container h1 {
+    font-size: 1.5rem;
+    opacity: 1;
+    padding: 32px 0 20px 20px;
+
+}
+
+.container {
+    padding: 0px 80px;
+
+}
+
+.boxButttons {
+    display: flex;
+    position: absolute;
+    top: 48%;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.box {
+    position: relative;
+}
+
+.buttonPrev {
+    cursor: pointer;
+
+}
+
+.buttonNext {
+    cursor: pointer;
+
+}
+
+
+.buttonSwiper {
+    z-index: 99;
+    color: gray;
+
+}
+
+@media (max-width:920px) {
+    .container {
+        padding: 0px 0px;
+    }
+    .buttonSwiper svg {
+        width: 30px;
+    
+    }
+}

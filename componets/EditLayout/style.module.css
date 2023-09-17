@@ -1,0 +1,8 @@
+.container{
+    min-height: 100vh;
+    margin-top: 50px;
+    width: 100%;
+    color: #3d4152;
+    font-weight: 600;
+    line-height: 1.5;
+}

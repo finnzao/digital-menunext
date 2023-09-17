@@ -1,0 +1,14 @@
+.container{
+    height: 90px;
+    background-color: rgb(28, 28, 28);
+    color: white;
+    display: flex;
+   justify-content: center;
+
+}
+
+.container ul {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}

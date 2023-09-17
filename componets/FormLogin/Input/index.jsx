@@ -3,8 +3,6 @@ const fixedInputClass="rounded-md appearance-none relative block w-full px-3 py-
 export default function Input({
     handleChange,
     value,
-    labelText,
-    labelFor,
     id,
     name,
     type,

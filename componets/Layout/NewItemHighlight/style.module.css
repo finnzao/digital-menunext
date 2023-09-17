@@ -1,0 +1,26 @@
+.new {
+    border: 1px solid rgba(128, 128, 128, 0.398);
+    width: 300px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    flex-direction: column;
+}
+
+.new:hover {
+    background-color: rgba(202, 202, 202, 0.705);
+    transition: 0.5s;
+
+}
+
+@media (max-width:768px) {
+    .new {
+        width: 250px;
+        height: 200px;
+    }
+}

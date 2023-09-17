@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+
+.headCardapio {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+
+.warningNone {
+	display: none;
+
+}
+
+.itemCardapioNone {
+	max-width: 400px;
+	min-height: 350px;
+	border: 3px solid var(--color-primary);
+	border-radius: 23px;
+	position: relative;
+}
+
+.itemCardapioNone .warningNone {
+	border-radius: 20px;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	opacity: 0.8;
+	background-color: grey;
+	position: absolute;
+}
+
+.warningNone img {
+	width: 100%;
+	height: 100%;
+}
+
+.warningText {
+	width: 100%;
+	height: 100px;
+	background-color: darkred;
+	position: relative;
+
+}
+
+.warningText h1 {
+	font-size: 2rem;
+}
+
+.headCardapio span {
+	width: 50%;
+
+}
+
+.title {
+	font-family: 'Rubik', sans-serif;
+	font-size: 1.3rem;
+}
+
+.textCardapio {
+	padding: 14px;
+}
+
+.img {
+	width: 100%;
+	height: 200px;
+	border-radius: 20px 20px 0px 0px;
+}
+
+.img img {
+	width: 100%;
+	height: 200px;
+	border-radius: 20px 20px 0px 0px;
+	border-bottom: 3px solid var(--color-primary);
+}
+
+.price {
+	text-align: right;
+	font-weight: bold;
+	color: var(--color-primary);
+}
+
+.itemCardapio {
+	max-width: 600px;
+	min-height: 390px;
+	max-height: 400px;
+	overflow-y: hidden;
+	border: 3px solid var(--color-primary);
+	border-radius: 23px;
+}
+
+.desc {
+	margin-top: 10px;
+	color: var(--color-second);
+}
+
+
+@media screen and (max-width: 650px) {
+	.headCardapio span {
+		width: 50%;
+
+	}
+}

@@ -11,7 +11,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/12/12426.png" />
       </Head>
-      
+
     </>
   )
+
+
+}
+
+export async function getStaticProps(context) {
+  return {
+    redirect:
+    {
+      destination: '/cardapio',
+      permanet: false
+    }
+  }
 }

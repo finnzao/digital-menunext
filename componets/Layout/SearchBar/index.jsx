@@ -6,14 +6,14 @@ const SearchBar= ({posts,setSearchResults})=>{
 			if(!e.target.value) return setSearchResults(posts)
 
 			const resultsArray=posts.filter(post =>post.title.includes(e.target.value)) ||
-			post.body.includes(e.target.value)
+			posts.body.includes(e.target.value)
 			setSearchResults(resultsArray)
 		}
 		const handleSearchChange =(e)=>{
 			if(!e.target.value) return setSearchResults(posts)
 
 			const resultsArray=posts.filter(post =>post.title.includes(e.target.value)) ||
-			post.body.includes(e.target.value)
+			posts.body.includes(e.target.value)
 			setSearchResults(resultsArray)
 				console.log(resultsArray)
 		};
