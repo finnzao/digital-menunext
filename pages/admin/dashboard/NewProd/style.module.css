@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
     position: relative;
     color: white;
@@ -14,4 +15,22 @@
 
 .space{
  width: 90px;
+=======
+.container {
+    position: relative;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box{
+    width: 100%;
+    display: flex;
+}
+
+.space{
+ width: 90px;
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161
 }

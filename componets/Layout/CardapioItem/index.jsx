@@ -1,7 +1,11 @@
 import styles from "./style.module.css";
 import Image from 'next/image';
 import SoldOut from "../../../assents/soldout.png";
+<<<<<<< HEAD
 export default function CardapioItem({ prodInfos }) {
+=======
+export default function CardapioItem({prodInfos}) {
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161
   return (
     <div className={prodInfos.state ? styles.itemCardapio : styles.itemCardapioNone}>
       <span className={styles.warningNone}>

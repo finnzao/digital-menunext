@@ -20,8 +20,16 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
+<<<<<<< HEAD
 , "componets/Layout/NavBar/index.jsx", "contexts/Context.js", "pages/404.jsx"  ],
   "exclude": [
     "node_modules"
   ]
 }
+=======
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161

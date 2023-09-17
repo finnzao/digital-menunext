@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useQuery } from 'react-query';
 import { useState } from 'react';
 import styles from "./style.module.css";
@@ -11,6 +12,15 @@ import Footer from '../../componets/Layout/Footer';
 import Highlights from '../../componets/Highlights';
 import Operation from '../../componets/Layout/Operation'
 import Head from 'next/head';
+=======
+import styles from "./style.module.css";
+import { getProds } from '../../lib/ProdResquests';
+import CardapioItem from "../../componets/Layout/CardapioItem";
+import CategoriesButtons from "../../componets/Buttons/buttonsCategories";
+import { useQuery } from 'react-query';
+import { useState } from 'react';
+import Preloader from "../../componets/Preloader";
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161
 
 
 export default function Cardapio() {

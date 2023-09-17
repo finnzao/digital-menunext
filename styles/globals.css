@@ -5,6 +5,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+<<<<<<< HEAD
 
 :root {
   --color-primary: #F69864;
@@ -14,6 +15,15 @@
   --color-blue-background-dark: rgba(49, 46, 129);
   --color-background-nav: #010000;
   --color-blue-background: rgba(67, 56, 202);
+=======
+:root{
+  --color-primary:#F69864;
+  --color-second:#290F02;
+  --color-head:#E95761;
+  --color-crusoe:#1E4620;
+  --color-blue-background-dark:  rgba(49,46,129);
+  --color-blue-background:  rgba(67,56,202);
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161
 }
 
 

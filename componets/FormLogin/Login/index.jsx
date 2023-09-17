@@ -3,8 +3,13 @@ import { loginFields } from '../constants/formFields';
 import { useForm } from 'react-hook-form'
 import Input from '../Input';
 import styles from './style.module.css'
+<<<<<<< HEAD
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useContext } from 'react';
+=======
+import {AuthContext} from '../../../contexts/AuthContext';
+import {useContext} from 'react';
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161
 import axios from "axios";
 
 
@@ -21,11 +26,21 @@ export default function Login() {
         setLoginState({ ...loginState, [e.target.id]: e.target.value })
     }
 
+<<<<<<< HEAD
     const handleSignIn = async () => {
         try {
             await signIn(loginState)
             setErrorMsg("Dados Corretos")
         } catch (err) {
+=======
+    const handleSignIn= async() =>{
+        try{
+        await signIn(loginState)
+        //const response = await axios.post("/api/login/",loginState);//vericação do backend
+        //console.log(loginState)
+        setErrorMsg("Dados Corretos")
+        }catch (err){
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161
             setErrorMsg("Dados Invalidos")
         }
 

@@ -1,5 +1,10 @@
 import styles from "./style.module.css";
 import ButtonDelete from "../../../componets/Buttons/buttonDelete";
+<<<<<<< HEAD
+=======
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleChangeAction, updateAction } from "@/redux/reducer";
+>>>>>>> 3d20795629f34146238a75c98695ef2021dec161
 import { AiFillEdit } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiFileEditLine } from "react-icons/ri";
